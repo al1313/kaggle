@@ -1,0 +1,41 @@
+# Installation
+	# OS
+		#1.Install virtualbox and use it to load Ubuntu
+		#2.Install guest additions via the code below. This is better than loading the disc as it could be missing some files
+			sudo apt-get install virtualbox-guest-dkms
+		#3.Set up sharing folder with host computer
+			#Create a folder each on host and guest(e.g.: /home/andy/VBShare) computer
+			#Add host folder to /Devices/Sharedfolder in toolbar, select "make permanent" option
+			# Then use the code
+			sudo mount -t vboxsf VBShare /home/andy/VBShare
+		#4.Install other essential packages
+			sudo apt-get install git
+			sudo apt-get install libboost-program-options-dev
+			sudo apt-get install libboost-python-dev
+			sudo apt-get install libbost1.55-all-dev
+			sudo apt-get install zlib1g-dev
+	# Vowpal Wabbit (VW)
+		#Clone latest version of VW from git
+			git clone git://github.com/JohnLangford/vowpal_wabbit.git
+		#Compile VW
+			cd vowpal_wabbit
+			make
+		#Check if compiling was successful
+			make test
+		#Add vw to path	
+			sudo make install
+			export PATH=/usr/local/bin:$PATH
+	# Python
+			sudo apt-get install python-pip
+			sudo apt-get install virtualenv
+		#Packages for some codes
+			sudo apt-get install libjpeg8-dev
+			sudo apt-get install libfreetype6-dev
+			sudo apt-get install libpng12-dev
+			sudo apt-get install libagg-dev
+			pip install mmh3
+			pip install matplotlib
+			sudo apt-get install libatlas-base-dev gfortran
+			pip install scipy
+			sudo apt-get protoc-compiler
+
